@@ -1,4 +1,7 @@
-import {ApiClientService, getClient} from 'src/services/api/ApiClientService/ApiClientService';
+import {
+  ApiClientService,
+  getClient,
+} from 'src/services/api/ApiClientService/ApiClientService';
 import {
   API_PREFIX,
   CHANGE_PASSWORD_URL,
@@ -6,21 +9,23 @@ import {
   LOGOUT_URL,
   REFRESH_TOKEN_URL,
   REGISTER_URL,
-  RESET_PASSWORD_URL
+  RESET_PASSWORD_URL,
 } from 'src/config/endpoints';
-import {LoginResponse} from 'src/types/models';
+import { LoginResponse } from 'src/types/models';
 
 export class UserApiService {
-
   static getClient() {
     return ApiClientService.getClient();
   }
 
   // Auth
 
-  static async login(email: string, password: string) : Promise<LoginResponse> {
+  static async login(email: string, password: string): Promise<LoginResponse> {
     // save token to local storage
-    const response = await getClient().post(API_PREFIX + LOGIN_URL, { email, password });
+    const response = await getClient().post(API_PREFIX + LOGIN_URL, {
+      email,
+      password,
+    });
     const { token, refreshToken } = response.data;
     UserApiService.saveToken(token);
     return { token, refreshToken, user: response.data.user };
@@ -46,7 +51,10 @@ export class UserApiService {
   }
 
   static async changePassword(password: string, token: string) {
-    return getClient().post(API_PREFIX + CHANGE_PASSWORD_URL, { password, token });
+    return getClient().post(API_PREFIX + CHANGE_PASSWORD_URL, {
+      password,
+      token,
+    });
   }
 
   // save token to local storage

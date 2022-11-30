@@ -1,9 +1,12 @@
-import {UserApiService} from 'src/services/api/UserApiService/UserApiService';
-import {LoginResponse} from 'src/types/models';
+import { UserApiService } from 'src/services/api/UserApiService/UserApiService';
+import { LoginResponse } from 'src/types/models';
 
 export class UserService {
   // auth
-  public static async login(email: string, password: string) : Promise<LoginResponse> {
+  public static async login(
+    email: string,
+    password: string
+  ): Promise<LoginResponse> {
     return await UserApiService.login(email, password);
   }
 

@@ -1,5 +1,5 @@
-import {TasksApiService} from 'src/services/api/TasksApiService/TasksApiService';
-import {TaskDto} from 'src/types/models';
+import { TasksApiService } from 'src/services/api/TasksApiService/TasksApiService';
+import { TaskDto } from 'src/types/models';
 
 export class TaskService {
   public static async getTasks(checklistId: string) {
@@ -22,7 +22,10 @@ export class TaskService {
     return await TasksApiService.reorderTasks(checklistId, tasks);
   }
 
-  public static async toggleTaskCompletion(checklistId: string, taskId: string) {
+  public static async toggleTaskCompletion(
+    checklistId: string,
+    taskId: string
+  ) {
     return await TasksApiService.toggleTaskCompletion(checklistId, taskId);
   }
 }
