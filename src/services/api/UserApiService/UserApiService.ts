@@ -1,19 +1,14 @@
 import {ApiClientService, getClient} from 'src/services/api/ApiClientService/ApiClientService';
 import {
-  API_PREFIX, CHANGE_PASSWORD_URL,
+  API_PREFIX,
+  CHANGE_PASSWORD_URL,
   LOGIN_URL,
   LOGOUT_URL,
   REFRESH_TOKEN_URL,
   REGISTER_URL,
   RESET_PASSWORD_URL
 } from 'src/config/endpoints';
-import {UserDto} from 'src/types/models';
-
-interface LoginResponse {
-  token: string;
-  refreshToken: string;
-  user: UserDto;
-}
+import {LoginResponse} from 'src/types/models';
 
 export class UserApiService {
 

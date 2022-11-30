@@ -14,13 +14,13 @@ export class TasksApiService {
   }
 
   // update a task
-  static async updateTask(checklistId: string, task: TaskDto): Promise<TaskDto> {
-    return ApiClientService.getClient().put(API_PREFIX + `/checklists/${checklistId}/tasks/${task.id}`, task);
+  static async updateTask(taskId: string, task: TaskDto): Promise<TaskDto> {
+    return ApiClientService.getClient().put(API_PREFIX + `/tasks/${task.id}`, task);
   }
 
   // delete a task
-  static async deleteTask(checklistId: string, taskId: string): Promise<void> {
-    return ApiClientService.getClient().delete(API_PREFIX + `/checklists/${checklistId}/tasks/${taskId}`);
+  static async deleteTask(taskId: string): Promise<void> {
+    return ApiClientService.getClient().delete(API_PREFIX + `/tasks/${taskId}`);
   }
 
   // reorder tasks
@@ -33,13 +33,4 @@ export class TasksApiService {
     return ApiClientService.getClient().post(API_PREFIX + `/checklists/${checklistId}/tasks/${taskId}/toggle`);
   }
 
-  // toggle all tasks completion
-  static async toggleAllTasksCompletion(checklistId: string): Promise<void> {
-    return ApiClientService.getClient().post(API_PREFIX + `/checklists/${checklistId}/tasks/toggle`);
-  }
-
-  // clear completed tasks
-  static async clearCompletedTasks(checklistId: string): Promise<void> {
-    return ApiClientService.getClient().delete(API_PREFIX + `/checklists/${checklistId}/tasks/clear`);
-  }
 }

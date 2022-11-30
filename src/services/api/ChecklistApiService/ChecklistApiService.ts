@@ -11,8 +11,8 @@ export class ChecklistApiService {
     return ApiClientService.getClient().get(API_PREFIX + `/checklists/${id}`);
   }
 
-  static async createChecklist(checklist: CheckListDto): Promise<CheckListDto> {
-    return ApiClientService.getClient().post(API_PREFIX + '/checklists', checklist);
+  static async createChecklist(name: string): Promise<CheckListDto> {
+    return ApiClientService.getClient().post(API_PREFIX + '/checklists', name);
   }
 
   static async updateChecklist(checklist: CheckListDto): Promise<CheckListDto> {

@@ -10,8 +10,8 @@ export interface Meta {
 export interface CheckListDto {
   id: string;
   name: string;
-  tasks: TaskDto[];
-  user: UserDto;
+  tasks?: TaskDto[];
+  user?: UserDto;
 }
 
 export interface TaskDto {
@@ -26,4 +26,10 @@ export interface UserDto {
   id: string;
   email: string;
   password?: string;
+}
+
+export interface LoginResponse {
+  token: string;
+  refreshToken: string;
+  user: UserDto;
 }
